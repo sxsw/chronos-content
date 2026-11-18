@@ -1,0 +1,53 @@
+name: Publish content
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Validate and build the preview, but do not publish'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-content
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the draft (main)
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+
+      - name: Validate the draft
+        run: node scripts/validate.mjs
+
+      - name: Check out the published artifact (gh-pages)
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: published
+          fetch-depth: 0
+
+      - name: Build the published artifact
+        run: node scripts/publish.mjs --out published
+
+      - name: Commit and push
+        if: ${{ !inputs.dry_run }}
+        working-directory: published
+        run: |
+          git config user.name  "chronos content bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo "nothing to publish"; exit 0; }
+          git commit -m "content: publish revision ${REVISION}"
+          git push origin gh-pages
+
+      - name: Upload the preview as a run artifact
+        uses: actions/upload-artifact@v4
+        with: {name: preview, path: published/}

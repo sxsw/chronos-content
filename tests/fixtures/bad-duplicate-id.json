@@ -1,0 +1,7 @@
+{
+  "banners": [
+    {"id": "dup", "title": "T1", "description": "D", "backgroundColor": null, "imageUrl": null, "ctaUrl": null, "order": 0},
+    {"id": "dup", "title": "T2", "description": "D", "backgroundColor": null, "imageUrl": null, "ctaUrl": null, "order": 1}
+  ],
+  "sponsors": []
+}
