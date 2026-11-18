@@ -58,7 +58,7 @@
       "imageUrl": "asset:six.png",
       "ctaUrl": "https://schedule.sxsw.com/",
       "order": 0
-    },
+    }
   ],
   "sponsors": {
     "masterSponsors": [
@@ -112,7 +112,7 @@
         "logoUrl": "asset:major-6.png",
         "linkUrl": "https://example.com",
         "order": 0
-      },
+      }
     ]
   }
 }
