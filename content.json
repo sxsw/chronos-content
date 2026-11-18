@@ -1,0 +1,36 @@
+{
+  "revision": 1,
+  "updatedAt": "2026-11-18T11:57:18.734Z",
+  "banners": [
+    {
+      "id": "passes-2027",
+      "title": "2027 Passes On Sale Now",
+      "description": "Lock in early-bird pricing before it goes up.",
+      "backgroundColor": "#1a1a2e",
+      "imageUrl": "https://sxsw.github.io/chronos-content/images/431ced6916a2a21a.png",
+      "ctaUrl": "https://schedule.sxsw.com/2027/passes",
+      "order": 0,
+      "updatedAt": "2026-11-18T11:57:18.734Z"
+    }
+  ],
+  "sponsors": [
+    {
+      "id": "goodnotes",
+      "name": "GoodNotes",
+      "tier": "master",
+      "logoUrl": "https://example.com/goodnotes-logo.png",
+      "linkUrl": "https://example.com",
+      "order": 0,
+      "updatedAt": "2026-11-18T11:57:18.734Z"
+    },
+    {
+      "id": "acme-co",
+      "name": "Acme Co",
+      "tier": "major",
+      "logoUrl": "https://example.com/acme-logo.png",
+      "linkUrl": "https://example.com/acme",
+      "order": 1,
+      "updatedAt": "2026-11-18T11:57:18.734Z"
+    }
+  ]
+}

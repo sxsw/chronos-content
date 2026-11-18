@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Chronos content preview — revision 1</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; max-width: 640px; margin: 0 auto; padding: 24px; color: #111; }
+  header { margin-bottom: 24px; }
+  h1 { font-size: 18px; }
+  .banner-card { position: relative; border-radius: 16px; padding: 16px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; color: #fff; }
+  .banner-image { width: 48px; height: 48px; border-radius: 8px; object-fit: cover; }
+  .no-image { width: 48px; height: 48px; border-radius: 8px; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; }
+  .banner-title { font-weight: bold; }
+  .banner-description { font-size: 13px; opacity: 0.85; }
+  .chevron { margin-left: auto; font-size: 24px; }
+  .chevron-dead { text-decoration: line-through; opacity: 0.5; }
+  .badges { position: absolute; bottom: -8px; left: 16px; display: flex; gap: 4px; flex-wrap: wrap; }
+  .badge { font-size: 10px; background: #eee; color: #333; border-radius: 4px; padding: 2px 6px; }
+  .badge-warn { background: #fff3cd; }
+  .badge-dead { background: #f8d7da; }
+  .sponsor { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .sponsor.dropped { text-decoration: line-through; opacity: 0.5; }
+  .warnings { font-size: 13px; color: #a00; }
+  .no-warnings { font-size: 13px; color: #090; }
+  section { margin-bottom: 32px; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Chronos content — revision 1</h1>
+    <p>Published 2026-11-18T11:57:18.734Z &middot; 1 banner(s) &middot; 2 sponsor(s)</p>
+    <p class="no-warnings">no warnings</p>
+  </header>
+  <section>
+    <h2>Banners</h2>
+    
+    <div class="banner-card" style="background-color: #1a1a2e">
+      <img src="https://sxsw.github.io/chronos-content/images/431ced6916a2a21a.png" alt="" class="banner-image" />
+      <div class="banner-body">
+        <div class="banner-title">2027 Passes On Sale Now</div>
+        <div class="banner-description">Lock in early-bird pricing before it goes up.</div>
+      </div>
+      <span class="chevron">&rsaquo;</span>
+      <div class="badges"></div>
+    </div>
+  </section>
+  <section>
+    <h2>Sponsors</h2>
+    <h3>Master</h3>
+    <div class="sponsor">GoodNotes</div>
+    <h3>Major</h3>
+    <div class="sponsor">Acme Co</div>
+    
+  </section>
+</body>
+</html>
