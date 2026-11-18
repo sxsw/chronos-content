@@ -1,6 +1,6 @@
 {
-  "revision": 1,
-  "updatedAt": "2026-11-18T19:35:18.697Z",
+  "revision": 2,
+  "updatedAt": "2026-11-18T20:40:01.976Z",
   "banners": [
     {
       "id": "passes-2027",
@@ -13,24 +13,26 @@
       "updatedAt": "2026-11-18T19:35:18.697Z"
     }
   ],
-  "sponsors": [
-    {
-      "id": "goodnotes",
-      "name": "GoodNotes",
-      "tier": "master",
-      "logoUrl": "https://example.com/goodnotes-logo.png",
-      "linkUrl": "https://example.com",
-      "order": 0,
-      "updatedAt": "2026-11-18T19:35:18.697Z"
-    },
-    {
-      "id": "acme-co",
-      "name": "Acme Co",
-      "tier": "major",
-      "logoUrl": "https://example.com/acme-logo.png",
-      "linkUrl": "https://example.com/acme",
-      "order": 1,
-      "updatedAt": "2026-11-18T19:35:18.697Z"
-    }
-  ]
+  "sponsors": {
+    "masterSponsors": [
+      {
+        "id": "goodnotes",
+        "name": "GoodNotes",
+        "logoUrl": "https://example.com/goodnotes-logo.png",
+        "linkUrl": "https://example.com",
+        "order": 0,
+        "updatedAt": "2026-11-18T20:40:01.976Z"
+      }
+    ],
+    "majorSponsors": [
+      {
+        "id": "acme-co",
+        "name": "Acme Co",
+        "logoUrl": "https://example.com/acme-logo.png",
+        "linkUrl": "https://example.com/acme",
+        "order": 1,
+        "updatedAt": "2026-11-18T20:40:01.976Z"
+      }
+    ]
+  }
 }
