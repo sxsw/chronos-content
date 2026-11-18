@@ -1,33 +1,118 @@
 {
   "banners": [
     {
-      "id": "passes-2027",
-      "title": "2027 Passes On Sale Now",
-      "description": "Lock in early-bird pricing before it goes up.",
-      "backgroundColor": "#1a1a2e",
-      "imageUrl": "asset:passes-2027.png",
-      "ctaUrl": "https://schedule.sxsw.com/2027/passes",
+      "id": "one",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#E3C545",
+      "imageUrl": "asset:one.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
       "order": 0
-    }
+    },
+  "banners": [
+    {
+      "id": "two",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#B6CC53",
+      "imageUrl": "asset:two.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
+      "order": 0
+    },
+  "banners": [
+    {
+      "id": "three",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#32B7BC",
+      "imageUrl": "asset:three.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
+      "order": 0
+    },
+  "banners": [
+    {
+      "id": "four",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#FFF2CC",
+      "imageUrl": "asset:four.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
+      "order": 0
+    },
+  "banners": [
+    {
+      "id": "five",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#FFF2CC",
+      "imageUrl": "asset:five.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
+      "order": 0
+    },
+  "banners": [
+    {
+      "id": "six",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#FFF2CC",
+      "imageUrl": "asset:six.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
+      "order": 0
+    },
   ],
   "sponsors": {
     "masterSponsors": [
       {
         "id": "goodnotes",
         "name": "GoodNotes",
-        "logoUrl": "https://example.com/goodnotes-logo.png",
+        "logoUrl": "asset:master.png",
         "linkUrl": "https://example.com",
         "order": 0
       }
     ],
     "majorSponsors": [
       {
-        "id": "acme-co",
-        "name": "Acme Co",
-        "logoUrl": "https://example.com/acme-logo.png",
-        "linkUrl": "https://example.com/acme",
-        "order": 1
-      }
+        "id": "major-1",
+        "name": "Major One",
+        "logoUrl": "asset:major-1.png",
+        "linkUrl": "https://example.com",
+        "order": 0
+      },
+      {
+        "id": "major-2",
+        "name": "Major Two",
+        "logoUrl": "asset:major-2.png",
+        "linkUrl": "https://example.com",
+        "order": 0
+      },
+      {
+        "id": "major-3",
+        "name": "Major Three",
+        "logoUrl": "asset:major-3.png",
+        "linkUrl": "https://example.com",
+        "order": 0
+      },
+      {
+        "id": "major-4",
+        "name": "Major Four",
+        "logoUrl": "asset:major-4.png",
+        "linkUrl": "https://example.com",
+        "order": 0
+      },
+      {
+        "id": "major-5",
+        "name": "Major Five",
+        "logoUrl": "asset:major-5.png",
+        "linkUrl": "https://example.com",
+        "order": 0
+      },
+      {
+        "id": "major-6",
+        "name": "Major Six",
+        "logoUrl": "asset:major-6.png",
+        "linkUrl": "https://example.com",
+        "order": 0
+      },
     ]
   }
 }
