@@ -1,6 +1,10 @@
 {
   "banners": [],
-  "sponsors": [
-    {"id": "s1", "name": "N", "tier": "Master", "logoUrl": null, "linkUrl": null, "order": 0}
-  ]
+  "sponsors": {
+    "masterSponsors": [
+      {"id": "s1", "name": "N1", "logoUrl": null, "linkUrl": null, "order": 0},
+      {"id": "s2", "name": "N2", "logoUrl": null, "linkUrl": null, "order": 1}
+    ],
+    "majorSponsors": []
+  }
 }

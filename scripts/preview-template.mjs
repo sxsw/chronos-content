@@ -58,13 +58,20 @@ function sponsorRow(sponsor, dropped) {
 
 export function renderPreview(document, warnings = []) {
   const banners = [...document.banners].sort(byOrderThenId)
-  const sponsors = [...document.sponsors].sort(byOrderThenId)
 
-  const sortedSponsors = [...sponsors].filter(s => s.logoUrl !== null)
-  const masterIndex = sortedSponsors.findIndex(s => s.tier === 'master')
-  const master = masterIndex === -1 ? null : sortedSponsors[masterIndex]
-  const major = sortedSponsors.filter((_, index) => index !== masterIndex)
-  const droppedSponsors = sponsors.filter(s => s.logoUrl === null)
+  // Defensive, belt-and-braces: masterSponsors.length > 1 is a hard validation
+  // error, but this still picks by (order, id) and demotes the rest to major
+  // for display, mirroring the mobile app's own defensive posture.
+  const taggedMaster = document.sponsors.masterSponsors.map(s => ({...s, isMaster: true}))
+  const taggedMajor = document.sponsors.majorSponsors.map(s => ({...s, isMaster: false}))
+  const sortedAll = [...taggedMaster, ...taggedMajor].sort(byOrderThenId)
+  const sortedValid = sortedAll.filter(s => s.logoUrl !== null)
+
+  const masterIndex = sortedValid.findIndex(s => s.isMaster)
+  const master = masterIndex === -1 ? null : sortedValid[masterIndex]
+  const major = sortedValid.filter((_, index) => index !== masterIndex)
+  const droppedSponsors = sortedAll.filter(s => s.logoUrl === null)
+  const sponsors = sortedAll
 
   const warningsHtml =
     warnings.length === 0

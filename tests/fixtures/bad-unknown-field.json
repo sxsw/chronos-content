@@ -1,6 +1,17 @@
 {
   "banners": [
-    {"id": "b1", "title": "T", "description": "D", "backgroundColor": null, "imgUrl": "asset:passes-2027.png", "ctaUrl": null, "order": 0}
+    {
+      "id": "b1",
+      "title": "T",
+      "description": "D",
+      "backgroundColor": null,
+      "imgUrl": "asset:passes-2027.png",
+      "ctaUrl": null,
+      "order": 0
+    }
   ],
-  "sponsors": []
+  "sponsors": {
+    "masterSponsors": [],
+    "majorSponsors": []
+  }
 }

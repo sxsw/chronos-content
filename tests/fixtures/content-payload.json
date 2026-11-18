@@ -10,22 +10,24 @@
       "order": 0
     }
   ],
-  "sponsors": [
-    {
-      "id": "goodnotes",
-      "name": "GoodNotes",
-      "tier": "master",
-      "logoUrl": "https://example.com/goodnotes-logo.png",
-      "linkUrl": "https://example.com",
-      "order": 0
-    },
-    {
-      "id": "acme-co",
-      "name": "Acme Co",
-      "tier": "major",
-      "logoUrl": "https://example.com/acme-logo.png",
-      "linkUrl": "https://example.com/acme",
-      "order": 1
-    }
-  ]
+  "sponsors": {
+    "masterSponsors": [
+      {
+        "id": "goodnotes",
+        "name": "GoodNotes",
+        "logoUrl": "https://example.com/goodnotes-logo.png",
+        "linkUrl": "https://example.com",
+        "order": 0
+      }
+    ],
+    "majorSponsors": [
+      {
+        "id": "acme-co",
+        "name": "Acme Co",
+        "logoUrl": "https://example.com/acme-logo.png",
+        "linkUrl": "https://example.com/acme",
+        "order": 1
+      }
+    ]
+  }
 }

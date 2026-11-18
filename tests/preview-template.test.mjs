@@ -47,26 +47,28 @@ const document = {
       updatedAt: '2026-01-01T00:00:00.000Z',
     },
   ],
-  sponsors: [
-    {
-      id: 'logoless',
-      name: 'Logoless Sponsor',
-      tier: 'major',
-      logoUrl: null,
-      linkUrl: null,
-      order: 0,
-      updatedAt: '2026-01-01T00:00:00.000Z',
-    },
-    {
-      id: 'master-sponsor',
-      name: 'Master Sponsor',
-      tier: 'master',
-      logoUrl: 'https://sxsw.github.io/chronos-content/images/logo.png',
-      linkUrl: 'https://example.com',
-      order: 0,
-      updatedAt: '2026-01-01T00:00:00.000Z',
-    },
-  ],
+  sponsors: {
+    masterSponsors: [
+      {
+        id: 'master-sponsor',
+        name: 'Master Sponsor',
+        logoUrl: 'https://sxsw.github.io/chronos-content/images/logo.png',
+        linkUrl: 'https://example.com',
+        order: 0,
+        updatedAt: '2026-01-01T00:00:00.000Z',
+      },
+    ],
+    majorSponsors: [
+      {
+        id: 'logoless',
+        name: 'Logoless Sponsor',
+        logoUrl: null,
+        linkUrl: null,
+        order: 0,
+        updatedAt: '2026-01-01T00:00:00.000Z',
+      },
+    ],
+  },
 }
 
 test('renders the no-image badge', () => {

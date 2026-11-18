@@ -17,7 +17,7 @@ const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 export const PUBLIC_BASE_URL = 'https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages'
 
 const BANNER_FIELDS = ['id', 'title', 'description', 'backgroundColor', 'imageUrl', 'ctaUrl', 'order']
-const SPONSOR_FIELDS = ['id', 'name', 'tier', 'logoUrl', 'linkUrl', 'order']
+const SPONSOR_FIELDS = ['id', 'name', 'logoUrl', 'linkUrl', 'order']
 
 function pick(obj, fields) {
   const result = {}
@@ -80,12 +80,16 @@ function stampUpdatedAt(items, previousItems, fields, now) {
 
 function serialize(doc) {
   const banners = doc.banners.map(item => pick(item, [...BANNER_FIELDS, 'updatedAt']))
-  const sponsors = doc.sponsors.map(item => pick(item, [...SPONSOR_FIELDS, 'updatedAt']))
+  const masterSponsors = doc.sponsors.masterSponsors.map(item => pick(item, [...SPONSOR_FIELDS, 'updatedAt']))
+  const majorSponsors = doc.sponsors.majorSponsors.map(item => pick(item, [...SPONSOR_FIELDS, 'updatedAt']))
   return {
     revision: doc.revision,
     updatedAt: doc.updatedAt,
     banners: [...banners].sort(byOrderThenId),
-    sponsors: [...sponsors].sort(byOrderThenId),
+    sponsors: {
+      masterSponsors: [...masterSponsors].sort(byOrderThenId),
+      majorSponsors: [...majorSponsors].sort(byOrderThenId),
+    },
   }
 }
 
@@ -110,19 +114,30 @@ export function publish({
     ...pick(banner, BANNER_FIELDS),
     imageUrl: resolveImageRef(banner.imageUrl, assetsDir, outImagesDir, warnings),
   }))
-  const rewrittenSponsors = draft.sponsors.map(sponsor => ({
+  const rewriteSponsor = sponsor => ({
     ...pick(sponsor, SPONSOR_FIELDS),
     logoUrl: resolveImageRef(sponsor.logoUrl, assetsDir, outImagesDir, warnings),
-  }))
+  })
+  const rewrittenMasterSponsors = draft.sponsors.masterSponsors.map(rewriteSponsor)
+  const rewrittenMajorSponsors = draft.sponsors.majorSponsors.map(rewriteSponsor)
 
   const previousBanners = previous?.banners ?? []
-  const previousSponsors = previous?.sponsors ?? []
+  const previousMasterSponsors = previous?.sponsors?.masterSponsors ?? []
+  const previousMajorSponsors = previous?.sponsors?.majorSponsors ?? []
 
   const stampedBanners = stampUpdatedAt(rewrittenBanners, previousBanners, BANNER_FIELDS, now)
-  const stampedSponsors = stampUpdatedAt(rewrittenSponsors, previousSponsors, SPONSOR_FIELDS, now)
+  const stampedMasterSponsors = stampUpdatedAt(rewrittenMasterSponsors, previousMasterSponsors, SPONSOR_FIELDS, now)
+  const stampedMajorSponsors = stampUpdatedAt(rewrittenMajorSponsors, previousMajorSponsors, SPONSOR_FIELDS, now)
+  const stampedSponsors = {masterSponsors: stampedMasterSponsors, majorSponsors: stampedMajorSponsors}
 
   const candidate = {revision: 0, updatedAt: now, banners: stampedBanners, sponsors: stampedSponsors}
-  const unchanged = previous != null && JSON.stringify(withoutRevisionMetadata(candidate)) === JSON.stringify(withoutRevisionMetadata({...previous, revision: 0, updatedAt: now}))
+  const previousForCompare = {
+    revision: 0,
+    updatedAt: now,
+    banners: previousBanners,
+    sponsors: {masterSponsors: previousMasterSponsors, majorSponsors: previousMajorSponsors},
+  }
+  const unchanged = previous != null && JSON.stringify(withoutRevisionMetadata(candidate)) === JSON.stringify(withoutRevisionMetadata(previousForCompare))
 
   if (unchanged) {
     return {unchanged: true, document: previous}

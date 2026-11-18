@@ -98,7 +98,7 @@ function isValidUrl(value, filename, fieldName, errors) {
 }
 
 const BANNER_FIELDS = ['id', 'title', 'description', 'backgroundColor', 'imageUrl', 'ctaUrl', 'order']
-const SPONSOR_FIELDS = ['id', 'name', 'tier', 'logoUrl', 'linkUrl', 'order']
+const SPONSOR_FIELDS = ['id', 'name', 'logoUrl', 'linkUrl', 'order']
 
 function validateItem(item, index, kind, fields, assetsDir, seenIds, errors, warnings) {
   const label = `${kind}[${index}]`
@@ -154,10 +154,6 @@ function validateItem(item, index, kind, fields, assetsDir, seenIds, errors, war
       warnings.push(`${label} (${id ?? '?'}): imageUrl is null — renders with no image`)
     }
   } else {
-    if (item.tier !== 'master' && item.tier !== 'major') {
-      errors.push(`${label} (${id ?? '?'}): tier must be exactly "master" or "major"`)
-    }
-
     isValidImageRef(item.logoUrl, assetsDir, `${label} (${id ?? '?'})`, errors, 'logoUrl')
     isValidUrl(item.linkUrl, `${label} (${id ?? '?'})`, 'linkUrl', errors)
 
@@ -196,12 +192,19 @@ export function validateDocument(doc, {assetsDir}) {
   }
 
   const banners = Array.isArray(doc.banners) ? doc.banners : null
-  const sponsors = Array.isArray(doc.sponsors) ? doc.sponsors : null
+  const sponsorsField = doc.sponsors
+  const masterSponsors = isPlainObject(sponsorsField) && Array.isArray(sponsorsField.masterSponsors) ? sponsorsField.masterSponsors : null
+  const majorSponsors = isPlainObject(sponsorsField) && Array.isArray(sponsorsField.majorSponsors) ? sponsorsField.majorSponsors : null
   if (banners === null) errors.push('banners must be an array')
-  if (sponsors === null) errors.push('sponsors must be an array')
-  if (banners === null || sponsors === null) return {errors, warnings}
+  if (!isPlainObject(sponsorsField)) {
+    errors.push('sponsors must be an object with masterSponsors and majorSponsors arrays')
+  } else {
+    if (masterSponsors === null) errors.push('sponsors.masterSponsors must be an array')
+    if (majorSponsors === null) errors.push('sponsors.majorSponsors must be an array')
+  }
+  if (banners === null || masterSponsors === null || majorSponsors === null) return {errors, warnings}
 
-  if (banners.length === 0 && sponsors.length === 0) {
+  if (banners.length === 0 && masterSponsors.length === 0 && majorSponsors.length === 0) {
     warnings.push('banners and sponsors are both empty')
   }
 
@@ -209,22 +212,21 @@ export function validateDocument(doc, {assetsDir}) {
   banners.forEach((item, index) => validateItem(item, index, 'banners', BANNER_FIELDS, assetsDir, bannerIds, errors, warnings))
 
   const sponsorIds = new Set()
-  const decodedSponsors = sponsors.map((item, index) => ({
-    item,
-    id: validateItem(item, index, 'sponsors', SPONSOR_FIELDS, assetsDir, sponsorIds, errors, warnings),
-  }))
+  masterSponsors.forEach((item, index) =>
+    validateItem(item, index, 'sponsors.masterSponsors', SPONSOR_FIELDS, assetsDir, sponsorIds, errors, warnings),
+  )
+  majorSponsors.forEach((item, index) =>
+    validateItem(item, index, 'sponsors.majorSponsors', SPONSOR_FIELDS, assetsDir, sponsorIds, errors, warnings),
+  )
 
-  const masters = sponsors.filter(sponsor => isPlainObject(sponsor) && sponsor.tier === 'master')
-  if (masters.length === 0 && sponsors.length > 0) {
-    warnings.push('no sponsor has tier "master" — the app will render master: null')
-  } else if (masters.length > 1) {
-    const sorted = [...masters].sort(byOrderThenId)
-    const demoted = sorted.slice(1).map(sponsor => sponsor.id)
-    warnings.push(`more than one sponsor has tier "master" (${sorted[0].id} wins by (order, id); ${demoted.join(', ')} would be demoted)`)
+  if (masterSponsors.length === 0 && (masterSponsors.length + majorSponsors.length) > 0) {
+    warnings.push('sponsors.masterSponsors is empty — the app will render master: null')
+  } else if (masterSponsors.length > 1) {
+    errors.push(`sponsors.masterSponsors must contain at most one entry (found ${masterSponsors.length})`)
   }
 
   const referencedAssets = new Set()
-  for (const item of [...banners, ...sponsors]) {
+  for (const item of [...banners, ...masterSponsors, ...majorSponsors]) {
     if (!isPlainObject(item)) continue
     for (const field of ['imageUrl', 'logoUrl']) {
       const value = item[field]
