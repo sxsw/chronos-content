@@ -11,7 +11,10 @@ import {ASSET_PATTERN, byOrderThenId, checkAsset} from './lib/rules.mjs'
 import {renderPreview} from './preview-template.mjs'
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
-export const PUBLIC_BASE_URL = 'https://sxsw.github.io/chronos-content'
+// raw.githubusercontent.com needs no GitHub Pages setup/admin access (unlike
+// sxsw.github.io, which requires repo-settings permission we don't have) —
+// it serves any file from any branch of a public repo directly.
+export const PUBLIC_BASE_URL = 'https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages'
 
 const BANNER_FIELDS = ['id', 'title', 'description', 'backgroundColor', 'imageUrl', 'ctaUrl', 'order']
 const SPONSOR_FIELDS = ['id', 'name', 'tier', 'logoUrl', 'linkUrl', 'order']
