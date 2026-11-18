@@ -1,16 +1,66 @@
 {
-  "revision": 2,
-  "updatedAt": "2026-11-18T20:40:01.976Z",
+  "revision": 3,
+  "updatedAt": "2026-11-18T21:26:54.076Z",
   "banners": [
     {
-      "id": "passes-2027",
-      "title": "2027 Passes On Sale Now",
-      "description": "Lock in early-bird pricing before it goes up.",
-      "backgroundColor": "#1a1a2e",
-      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/431ced6916a2a21a.png",
-      "ctaUrl": "https://schedule.sxsw.com/2027/passes",
+      "id": "five",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#FFF2CC",
+      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/2a3eecf75b8285cf.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
       "order": 0,
-      "updatedAt": "2026-11-18T19:35:18.697Z"
+      "updatedAt": "2026-11-18T21:26:54.076Z"
+    },
+    {
+      "id": "four",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#FFF2CC",
+      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/acd166c87c1eb851.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
+      "order": 0,
+      "updatedAt": "2026-11-18T21:26:54.076Z"
+    },
+    {
+      "id": "one",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#E3C545",
+      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/9c280369e23ed6e6.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
+      "order": 0,
+      "updatedAt": "2026-11-18T21:26:54.076Z"
+    },
+    {
+      "id": "six",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#FFF2CC",
+      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/f4cfe44ec27c32db.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
+      "order": 0,
+      "updatedAt": "2026-11-18T21:26:54.076Z"
+    },
+    {
+      "id": "three",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#32B7BC",
+      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/d33e9ff218f91181.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
+      "order": 0,
+      "updatedAt": "2026-11-18T21:26:54.076Z"
+    },
+    {
+      "id": "two",
+      "title": "Heading Lorem",
+      "description": "Subheading lorem ipsum",
+      "backgroundColor": "#B6CC53",
+      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/bd71bd24d45a021f.png",
+      "ctaUrl": "https://schedule.sxsw.com/",
+      "order": 0,
+      "updatedAt": "2026-11-18T21:26:54.076Z"
     }
   ],
   "sponsors": {
@@ -18,20 +68,60 @@
       {
         "id": "goodnotes",
         "name": "GoodNotes",
-        "logoUrl": "https://example.com/goodnotes-logo.png",
+        "logoUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/cd5b48c71505017e.png",
         "linkUrl": "https://example.com",
         "order": 0,
-        "updatedAt": "2026-11-18T20:40:01.976Z"
+        "updatedAt": "2026-11-18T21:26:54.076Z"
       }
     ],
     "majorSponsors": [
       {
-        "id": "acme-co",
-        "name": "Acme Co",
-        "logoUrl": "https://example.com/acme-logo.png",
-        "linkUrl": "https://example.com/acme",
-        "order": 1,
-        "updatedAt": "2026-11-18T20:40:01.976Z"
+        "id": "major-1",
+        "name": "Major One",
+        "logoUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/533a256b7b550195.png",
+        "linkUrl": "https://example.com",
+        "order": 0,
+        "updatedAt": "2026-11-18T21:26:54.076Z"
+      },
+      {
+        "id": "major-2",
+        "name": "Major Two",
+        "logoUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/a2d4a1139ac7497f.png",
+        "linkUrl": "https://example.com",
+        "order": 0,
+        "updatedAt": "2026-11-18T21:26:54.076Z"
+      },
+      {
+        "id": "major-3",
+        "name": "Major Three",
+        "logoUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/bf68201c51f581b7.png",
+        "linkUrl": "https://example.com",
+        "order": 0,
+        "updatedAt": "2026-11-18T21:26:54.076Z"
+      },
+      {
+        "id": "major-4",
+        "name": "Major Four",
+        "logoUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/6a15957756a56528.png",
+        "linkUrl": "https://example.com",
+        "order": 0,
+        "updatedAt": "2026-11-18T21:26:54.076Z"
+      },
+      {
+        "id": "major-5",
+        "name": "Major Five",
+        "logoUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/4f6b01f960f3df8d.png",
+        "linkUrl": "https://example.com",
+        "order": 0,
+        "updatedAt": "2026-11-18T21:26:54.076Z"
+      },
+      {
+        "id": "major-6",
+        "name": "Major Six",
+        "logoUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/d58c1f106ba309ff.png",
+        "linkUrl": "https://example.com",
+        "order": 0,
+        "updatedAt": "2026-11-18T21:26:54.076Z"
       }
     ]
   }
