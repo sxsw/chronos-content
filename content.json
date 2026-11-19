@@ -1,68 +1,114 @@
 {
-  "revision": 3,
-  "updatedAt": "2026-11-18T21:26:54.076Z",
-  "banners": [
-    {
-      "id": "five",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#FFF2CC",
-      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/2a3eecf75b8285cf.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0,
-      "updatedAt": "2026-11-18T21:26:54.076Z"
-    },
-    {
-      "id": "four",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#FFF2CC",
-      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/acd166c87c1eb851.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0,
-      "updatedAt": "2026-11-18T21:26:54.076Z"
-    },
-    {
-      "id": "one",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#E3C545",
-      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/9c280369e23ed6e6.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0,
-      "updatedAt": "2026-11-18T21:26:54.076Z"
-    },
-    {
-      "id": "six",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#FFF2CC",
-      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/f4cfe44ec27c32db.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0,
-      "updatedAt": "2026-11-18T21:26:54.076Z"
-    },
-    {
-      "id": "three",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#32B7BC",
-      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/d33e9ff218f91181.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0,
-      "updatedAt": "2026-11-18T21:26:54.076Z"
-    },
-    {
-      "id": "two",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#B6CC53",
-      "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/bd71bd24d45a021f.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0,
-      "updatedAt": "2026-11-18T21:26:54.076Z"
-    }
-  ],
+  "revision": 4,
+  "updatedAt": "2026-11-19T12:20:31.661Z",
+  "banners": {
+    "clubhouse": [
+      {
+        "id": "clubhouse-one",
+        "title": "Clubhouse Heading Lorem",
+        "description": "Clubhouse subheading lorem ipsum",
+        "backgroundColor": "#E3C545",
+        "imageUrl": null,
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0,
+        "updatedAt": "2026-11-19T12:20:31.661Z"
+      },
+      {
+        "id": "clubhouse-two",
+        "title": "Clubhouse Heading Lorem",
+        "description": "Clubhouse subheading lorem ipsum",
+        "backgroundColor": "#B6CC53",
+        "imageUrl": null,
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 1,
+        "updatedAt": "2026-11-19T12:20:31.661Z"
+      },
+      {
+        "id": "clubhouse-three",
+        "title": "Clubhouse Heading Lorem",
+        "description": "Clubhouse subheading lorem ipsum",
+        "backgroundColor": "#32B7BC",
+        "imageUrl": null,
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 2,
+        "updatedAt": "2026-11-19T12:20:31.661Z"
+      }
+    ],
+    "loggedOut": [
+      {
+        "id": "logged-out-one",
+        "title": "Logged Out Heading Lorem",
+        "description": "Logged out subheading lorem ipsum",
+        "backgroundColor": "#FFF2CC",
+        "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/9c280369e23ed6e6.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0,
+        "updatedAt": "2026-11-19T12:20:31.661Z"
+      }
+    ],
+    "common": [
+      {
+        "id": "five",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#FFF2CC",
+        "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/2a3eecf75b8285cf.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0,
+        "updatedAt": "2026-11-19T12:20:31.661Z"
+      },
+      {
+        "id": "four",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#FFF2CC",
+        "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/acd166c87c1eb851.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0,
+        "updatedAt": "2026-11-19T12:20:31.661Z"
+      },
+      {
+        "id": "one",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#E3C545",
+        "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/9c280369e23ed6e6.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0,
+        "updatedAt": "2026-11-19T12:20:31.661Z"
+      },
+      {
+        "id": "six",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#FFF2CC",
+        "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/f4cfe44ec27c32db.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0,
+        "updatedAt": "2026-11-19T12:20:31.661Z"
+      },
+      {
+        "id": "three",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#32B7BC",
+        "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/d33e9ff218f91181.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0,
+        "updatedAt": "2026-11-19T12:20:31.661Z"
+      },
+      {
+        "id": "two",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#B6CC53",
+        "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/bd71bd24d45a021f.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0,
+        "updatedAt": "2026-11-19T12:20:31.661Z"
+      }
+    ]
+  },
   "sponsors": {
     "masterSponsors": [
       {
