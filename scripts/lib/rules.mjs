@@ -123,13 +123,14 @@ function validateItem(item, index, kind, fields, assetsDir, seenIds, errors, war
     seenIds.add(id)
   }
 
-  const nameField = kind === 'banners' ? 'title' : 'name'
+  const isBanner = kind.startsWith('banners')
+  const nameField = isBanner ? 'title' : 'name'
   const nameValue = item[nameField]
   if (typeof nameValue !== 'string' || nameValue.length === 0) {
     errors.push(`${label} (${id ?? '?'}): ${nameField} must be a non-empty string`)
   }
 
-  if (kind === 'banners') {
+  if (isBanner) {
     if (typeof item.description !== 'string') {
       errors.push(`${label} (${id ?? '?'}): description must be a string`)
     }
@@ -191,25 +192,38 @@ export function validateDocument(doc, {assetsDir}) {
     warnings.push('draft contains "revision" or "updatedAt" — these are stamped by publish.mjs and will be overwritten')
   }
 
-  const banners = Array.isArray(doc.banners) ? doc.banners : null
+  const bannersField = doc.banners
+  const clubhouseBanners = isPlainObject(bannersField) && Array.isArray(bannersField.clubhouse) ? bannersField.clubhouse : null
+  const loggedOutBanners = isPlainObject(bannersField) && Array.isArray(bannersField.loggedOut) ? bannersField.loggedOut : null
+  const commonBanners = isPlainObject(bannersField) && Array.isArray(bannersField.common) ? bannersField.common : null
   const sponsorsField = doc.sponsors
   const masterSponsors = isPlainObject(sponsorsField) && Array.isArray(sponsorsField.masterSponsors) ? sponsorsField.masterSponsors : null
   const majorSponsors = isPlainObject(sponsorsField) && Array.isArray(sponsorsField.majorSponsors) ? sponsorsField.majorSponsors : null
-  if (banners === null) errors.push('banners must be an array')
+  if (!isPlainObject(bannersField)) {
+    errors.push('banners must be an object with clubhouse, loggedOut and common arrays')
+  } else {
+    if (clubhouseBanners === null) errors.push('banners.clubhouse must be an array')
+    if (loggedOutBanners === null) errors.push('banners.loggedOut must be an array')
+    if (commonBanners === null) errors.push('banners.common must be an array')
+  }
   if (!isPlainObject(sponsorsField)) {
     errors.push('sponsors must be an object with masterSponsors and majorSponsors arrays')
   } else {
     if (masterSponsors === null) errors.push('sponsors.masterSponsors must be an array')
     if (majorSponsors === null) errors.push('sponsors.majorSponsors must be an array')
   }
-  if (banners === null || masterSponsors === null || majorSponsors === null) return {errors, warnings}
+  if (clubhouseBanners === null || loggedOutBanners === null || commonBanners === null || masterSponsors === null || majorSponsors === null) {
+    return {errors, warnings}
+  }
 
-  if (banners.length === 0 && masterSponsors.length === 0 && majorSponsors.length === 0) {
+  if (clubhouseBanners.length === 0 && loggedOutBanners.length === 0 && commonBanners.length === 0 && masterSponsors.length === 0 && majorSponsors.length === 0) {
     warnings.push('banners and sponsors are both empty')
   }
 
   const bannerIds = new Set()
-  banners.forEach((item, index) => validateItem(item, index, 'banners', BANNER_FIELDS, assetsDir, bannerIds, errors, warnings))
+  clubhouseBanners.forEach((item, index) => validateItem(item, index, 'banners.clubhouse', BANNER_FIELDS, assetsDir, bannerIds, errors, warnings))
+  loggedOutBanners.forEach((item, index) => validateItem(item, index, 'banners.loggedOut', BANNER_FIELDS, assetsDir, bannerIds, errors, warnings))
+  commonBanners.forEach((item, index) => validateItem(item, index, 'banners.common', BANNER_FIELDS, assetsDir, bannerIds, errors, warnings))
 
   const sponsorIds = new Set()
   masterSponsors.forEach((item, index) =>
@@ -226,7 +240,7 @@ export function validateDocument(doc, {assetsDir}) {
   }
 
   const referencedAssets = new Set()
-  for (const item of [...banners, ...masterSponsors, ...majorSponsors]) {
+  for (const item of [...clubhouseBanners, ...loggedOutBanners, ...commonBanners, ...masterSponsors, ...majorSponsors]) {
     if (!isPlainObject(item)) continue
     for (const field of ['imageUrl', 'logoUrl']) {
       const value = item[field]

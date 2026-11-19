@@ -1,15 +1,19 @@
 {
-  "banners": [
-    {
-      "id": "b1",
-      "title": "T",
-      "description": "D",
-      "backgroundColor": null,
-      "imgUrl": "asset:passes-2027.png",
-      "ctaUrl": null,
-      "order": 0
-    }
-  ],
+  "banners": {
+    "clubhouse": [],
+    "loggedOut": [],
+    "common": [
+      {
+        "id": "b1",
+        "title": "T",
+        "description": "D",
+        "backgroundColor": null,
+        "imgUrl": "asset:passes-2027.png",
+        "ctaUrl": null,
+        "order": 0
+      }
+    ]
+  },
   "sponsors": {
     "masterSponsors": [],
     "majorSponsors": []

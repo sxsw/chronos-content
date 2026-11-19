@@ -1,15 +1,19 @@
 {
-  "banners": [
-    {
-      "id": "b1",
-      "title": "T",
-      "description": "D",
-      "backgroundColor": null,
-      "imageUrl": null,
-      "ctaUrl": "javascript:alert(1)",
-      "order": 0
-    }
-  ],
+  "banners": {
+    "clubhouse": [],
+    "loggedOut": [],
+    "common": [
+      {
+        "id": "b1",
+        "title": "T",
+        "description": "D",
+        "backgroundColor": null,
+        "imageUrl": null,
+        "ctaUrl": "javascript:alert(1)",
+        "order": 0
+      }
+    ]
+  },
   "sponsors": {
     "masterSponsors": [],
     "majorSponsors": []

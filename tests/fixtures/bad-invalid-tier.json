@@ -1,5 +1,5 @@
 {
-  "banners": [],
+  "banners": {"clubhouse": [], "loggedOut": [], "common": []},
   "sponsors": {
     "masterSponsors": [
       {"id": "s1", "name": "N1", "logoUrl": null, "linkUrl": null, "order": 0},

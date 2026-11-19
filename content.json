@@ -1,60 +1,102 @@
 {
-  "banners": [
-    {
-      "id": "one",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#E3C545",
-      "imageUrl": "asset:one.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0
-    },
-    {
-      "id": "two",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#B6CC53",
-      "imageUrl": "asset:two.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0
-    },
-    {
-      "id": "three",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#32B7BC",
-      "imageUrl": "asset:three.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0
-    },
-    {
-      "id": "four",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#FFF2CC",
-      "imageUrl": "asset:four.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0
-    },
-    {
-      "id": "five",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#FFF2CC",
-      "imageUrl": "asset:five.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0
-    },
-    {
-      "id": "six",
-      "title": "Heading Lorem",
-      "description": "Subheading lorem ipsum",
-      "backgroundColor": "#FFF2CC",
-      "imageUrl": "asset:six.png",
-      "ctaUrl": "https://schedule.sxsw.com/",
-      "order": 0
-    }
-  ],
+  "banners": {
+    "clubhouse": [
+      {
+        "id": "clubhouse-one",
+        "title": "Clubhouse Heading Lorem",
+        "description": "Clubhouse subheading lorem ipsum",
+        "backgroundColor": "#E3C545",
+        "imageUrl": null,
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0
+      },
+      {
+        "id": "clubhouse-two",
+        "title": "Clubhouse Heading Lorem",
+        "description": "Clubhouse subheading lorem ipsum",
+        "backgroundColor": "#B6CC53",
+        "imageUrl": null,
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 1
+      },
+      {
+        "id": "clubhouse-three",
+        "title": "Clubhouse Heading Lorem",
+        "description": "Clubhouse subheading lorem ipsum",
+        "backgroundColor": "#32B7BC",
+        "imageUrl": null,
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 2
+      }
+    ],
+    "loggedOut": [
+      {
+        "id": "logged-out-one",
+        "title": "Logged Out Heading Lorem",
+        "description": "Logged out subheading lorem ipsum",
+        "backgroundColor": "#FFF2CC",
+        "imageUrl": "asset:one.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0
+      }
+    ],
+    "common": [
+      {
+        "id": "one",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#E3C545",
+        "imageUrl": "asset:one.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0
+      },
+      {
+        "id": "two",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#B6CC53",
+        "imageUrl": "asset:two.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0
+      },
+      {
+        "id": "three",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#32B7BC",
+        "imageUrl": "asset:three.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0
+      },
+      {
+        "id": "four",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#FFF2CC",
+        "imageUrl": "asset:four.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0
+      },
+      {
+        "id": "five",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#FFF2CC",
+        "imageUrl": "asset:five.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0
+      },
+      {
+        "id": "six",
+        "title": "Heading Lorem",
+        "description": "Subheading lorem ipsum",
+        "backgroundColor": "#FFF2CC",
+        "imageUrl": "asset:six.png",
+        "ctaUrl": "https://schedule.sxsw.com/",
+        "order": 0
+      }
+    ]
+  },
   "sponsors": {
     "masterSponsors": [
       {

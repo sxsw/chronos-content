@@ -48,7 +48,11 @@ test('a non-https URL is an error', () => {
 
 test('a draft with two errors reports both', () => {
   const doc = {
-    banners: [{id: 'b1', title: '', description: 'd', backgroundColor: 'nope', imageUrl: null, ctaUrl: null, order: 0}],
+    banners: {
+      clubhouse: [],
+      loggedOut: [],
+      common: [{id: 'b1', title: '', description: 'd', backgroundColor: 'nope', imageUrl: null, ctaUrl: null, order: 0}],
+    },
     sponsors: {masterSponsors: [], majorSponsors: []},
   }
   const {errors} = validateDocument(doc, {assetsDir: FIXTURES})
@@ -57,17 +61,21 @@ test('a draft with two errors reports both', () => {
 
 test('ctaUrl outside the allow-list warns DEAD CTA but does not error', () => {
   const doc = {
-    banners: [
-      {
-        id: 'b1',
-        title: 'T',
-        description: 'd',
-        backgroundColor: null,
-        imageUrl: null,
-        ctaUrl: 'https://example.com/off-allowlist',
-        order: 0,
-      },
-    ],
+    banners: {
+      clubhouse: [],
+      loggedOut: [],
+      common: [
+        {
+          id: 'b1',
+          title: 'T',
+          description: 'd',
+          backgroundColor: null,
+          imageUrl: null,
+          ctaUrl: 'https://example.com/off-allowlist',
+          order: 0,
+        },
+      ],
+    },
     sponsors: {masterSponsors: [], majorSponsors: []},
   }
   const {errors, warnings} = validateDocument(doc, {assetsDir: FIXTURES})
@@ -77,7 +85,7 @@ test('ctaUrl outside the allow-list warns DEAD CTA but does not error', () => {
 
 test('a sponsor with no logoUrl warns that it will be dropped', () => {
   const doc = {
-    banners: [],
+    banners: {clubhouse: [], loggedOut: [], common: []},
     sponsors: {masterSponsors: [], majorSponsors: [{id: 's1', name: 'N', logoUrl: null, linkUrl: null, order: 0}]},
   }
   const {warnings} = validateDocument(doc, {assetsDir: FIXTURES})
@@ -85,6 +93,9 @@ test('a sponsor with no logoUrl warns that it will be dropped', () => {
 })
 
 test('empty banners and sponsors both warn', () => {
-  const {warnings} = validateDocument({banners: [], sponsors: {masterSponsors: [], majorSponsors: []}}, {assetsDir: FIXTURES})
+  const {warnings} = validateDocument(
+    {banners: {clubhouse: [], loggedOut: [], common: []}, sponsors: {masterSponsors: [], majorSponsors: []}},
+    {assetsDir: FIXTURES},
+  )
   assert.ok(warnings.some(w => w.includes('both empty')))
 })

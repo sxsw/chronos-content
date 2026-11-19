@@ -57,7 +57,10 @@ function sponsorRow(sponsor, dropped) {
 }
 
 export function renderPreview(document, warnings = []) {
-  const banners = [...document.banners].sort(byOrderThenId)
+  const clubhouseBanners = [...document.banners.clubhouse].sort(byOrderThenId)
+  const loggedOutBanners = [...document.banners.loggedOut].sort(byOrderThenId)
+  const commonBanners = [...document.banners.common].sort(byOrderThenId)
+  const totalBanners = clubhouseBanners.length + loggedOutBanners.length + commonBanners.length
 
   // Defensive, belt-and-braces: masterSponsors.length > 1 is a hard validation
   // error, but this still picks by (order, id) and demotes the rest to major
@@ -108,12 +111,17 @@ export function renderPreview(document, warnings = []) {
 <body>
   <header>
     <h1>Chronos content — revision ${document.revision}</h1>
-    <p>Published ${escapeHtml(document.updatedAt)} &middot; ${banners.length} banner(s) &middot; ${sponsors.length} sponsor(s)</p>
+    <p>Published ${escapeHtml(document.updatedAt)} &middot; ${totalBanners} banner(s) &middot; ${sponsors.length} sponsor(s)</p>
     ${warningsHtml}
   </header>
   <section>
     <h2>Banners</h2>
-    ${banners.map(bannerCard).join('\n')}
+    <h3>Common</h3>
+    ${commonBanners.map(bannerCard).join('\n')}
+    <h3>Clubhouse</h3>
+    ${clubhouseBanners.map(bannerCard).join('\n')}
+    <h3>Logged Out</h3>
+    ${loggedOutBanners.map(bannerCard).join('\n')}
   </section>
   <section>
     <h2>Sponsors</h2>

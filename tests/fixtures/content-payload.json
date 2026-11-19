@@ -1,15 +1,39 @@
 {
-  "banners": [
-    {
-      "id": "passes-2027",
-      "title": "2027 Passes On Sale Now",
-      "description": "Lock in early-bird pricing before it goes up.",
-      "backgroundColor": "#1a1a2e",
-      "imageUrl": "asset:passes-2027.png",
-      "ctaUrl": "https://schedule.sxsw.com/2027/passes",
-      "order": 0
-    }
-  ],
+  "banners": {
+    "clubhouse": [
+      {
+        "id": "clubhouse-passes-2027",
+        "title": "Clubhouse 2027 Passes",
+        "description": "Lock in early-bird pricing before it goes up.",
+        "backgroundColor": "#1a1a2e",
+        "imageUrl": null,
+        "ctaUrl": "https://schedule.sxsw.com/2027/passes",
+        "order": 0
+      }
+    ],
+    "loggedOut": [
+      {
+        "id": "logged-out-passes-2027",
+        "title": "Sign In To See More",
+        "description": "Lock in early-bird pricing before it goes up.",
+        "backgroundColor": "#1a1a2e",
+        "imageUrl": "asset:passes-2027.png",
+        "ctaUrl": "https://schedule.sxsw.com/2027/passes",
+        "order": 0
+      }
+    ],
+    "common": [
+      {
+        "id": "passes-2027",
+        "title": "2027 Passes On Sale Now",
+        "description": "Lock in early-bird pricing before it goes up.",
+        "backgroundColor": "#1a1a2e",
+        "imageUrl": "asset:passes-2027.png",
+        "ctaUrl": "https://schedule.sxsw.com/2027/passes",
+        "order": 0
+      }
+    ]
+  },
   "sponsors": {
     "masterSponsors": [
       {

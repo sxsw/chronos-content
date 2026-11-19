@@ -5,7 +5,10 @@ import {renderPreview} from '../scripts/preview-template.mjs'
 const document = {
   revision: 3,
   updatedAt: '2026-01-01T00:00:00.000Z',
-  banners: [
+  banners: {
+  clubhouse: [],
+  loggedOut: [],
+  common: [
     {
       id: 'no-image',
       title: 'No Image Banner',
@@ -47,6 +50,7 @@ const document = {
       updatedAt: '2026-01-01T00:00:00.000Z',
     },
   ],
+  },
   sponsors: {
     masterSponsors: [
       {

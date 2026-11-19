@@ -79,13 +79,19 @@ function stampUpdatedAt(items, previousItems, fields, now) {
 }
 
 function serialize(doc) {
-  const banners = doc.banners.map(item => pick(item, [...BANNER_FIELDS, 'updatedAt']))
+  const clubhouse = doc.banners.clubhouse.map(item => pick(item, [...BANNER_FIELDS, 'updatedAt']))
+  const loggedOut = doc.banners.loggedOut.map(item => pick(item, [...BANNER_FIELDS, 'updatedAt']))
+  const common = doc.banners.common.map(item => pick(item, [...BANNER_FIELDS, 'updatedAt']))
   const masterSponsors = doc.sponsors.masterSponsors.map(item => pick(item, [...SPONSOR_FIELDS, 'updatedAt']))
   const majorSponsors = doc.sponsors.majorSponsors.map(item => pick(item, [...SPONSOR_FIELDS, 'updatedAt']))
   return {
     revision: doc.revision,
     updatedAt: doc.updatedAt,
-    banners: [...banners].sort(byOrderThenId),
+    banners: {
+      clubhouse: [...clubhouse].sort(byOrderThenId),
+      loggedOut: [...loggedOut].sort(byOrderThenId),
+      common: [...common].sort(byOrderThenId),
+    },
     sponsors: {
       masterSponsors: [...masterSponsors].sort(byOrderThenId),
       majorSponsors: [...majorSponsors].sort(byOrderThenId),
@@ -110,10 +116,13 @@ export function publish({
 } = {}) {
   const outImagesDir = join(outDir, 'images')
 
-  const rewrittenBanners = draft.banners.map(banner => ({
+  const rewriteBanner = banner => ({
     ...pick(banner, BANNER_FIELDS),
     imageUrl: resolveImageRef(banner.imageUrl, assetsDir, outImagesDir, warnings),
-  }))
+  })
+  const rewrittenClubhouseBanners = draft.banners.clubhouse.map(rewriteBanner)
+  const rewrittenLoggedOutBanners = draft.banners.loggedOut.map(rewriteBanner)
+  const rewrittenCommonBanners = draft.banners.common.map(rewriteBanner)
   const rewriteSponsor = sponsor => ({
     ...pick(sponsor, SPONSOR_FIELDS),
     logoUrl: resolveImageRef(sponsor.logoUrl, assetsDir, outImagesDir, warnings),
@@ -121,11 +130,16 @@ export function publish({
   const rewrittenMasterSponsors = draft.sponsors.masterSponsors.map(rewriteSponsor)
   const rewrittenMajorSponsors = draft.sponsors.majorSponsors.map(rewriteSponsor)
 
-  const previousBanners = previous?.banners ?? []
+  const previousClubhouseBanners = previous?.banners?.clubhouse ?? []
+  const previousLoggedOutBanners = previous?.banners?.loggedOut ?? []
+  const previousCommonBanners = previous?.banners?.common ?? []
   const previousMasterSponsors = previous?.sponsors?.masterSponsors ?? []
   const previousMajorSponsors = previous?.sponsors?.majorSponsors ?? []
 
-  const stampedBanners = stampUpdatedAt(rewrittenBanners, previousBanners, BANNER_FIELDS, now)
+  const stampedClubhouseBanners = stampUpdatedAt(rewrittenClubhouseBanners, previousClubhouseBanners, BANNER_FIELDS, now)
+  const stampedLoggedOutBanners = stampUpdatedAt(rewrittenLoggedOutBanners, previousLoggedOutBanners, BANNER_FIELDS, now)
+  const stampedCommonBanners = stampUpdatedAt(rewrittenCommonBanners, previousCommonBanners, BANNER_FIELDS, now)
+  const stampedBanners = {clubhouse: stampedClubhouseBanners, loggedOut: stampedLoggedOutBanners, common: stampedCommonBanners}
   const stampedMasterSponsors = stampUpdatedAt(rewrittenMasterSponsors, previousMasterSponsors, SPONSOR_FIELDS, now)
   const stampedMajorSponsors = stampUpdatedAt(rewrittenMajorSponsors, previousMajorSponsors, SPONSOR_FIELDS, now)
   const stampedSponsors = {masterSponsors: stampedMasterSponsors, majorSponsors: stampedMajorSponsors}
@@ -134,7 +148,7 @@ export function publish({
   const previousForCompare = {
     revision: 0,
     updatedAt: now,
-    banners: previousBanners,
+    banners: {clubhouse: previousClubhouseBanners, loggedOut: previousLoggedOutBanners, common: previousCommonBanners},
     sponsors: {masterSponsors: previousMasterSponsors, majorSponsors: previousMajorSponsors},
   }
   const unchanged = previous != null && JSON.stringify(withoutRevisionMetadata(candidate)) === JSON.stringify(withoutRevisionMetadata(previousForCompare))
