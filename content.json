@@ -1,37 +1,37 @@
 {
-  "revision": 5,
-  "updatedAt": "2026-11-19T12:27:49.651Z",
+  "revision": 6,
+  "updatedAt": "2026-11-19T12:40:57.769Z",
   "banners": {
     "clubhouse": [
       {
         "id": "clubhouse-one",
-        "title": "Clubhouse Heading Lorem",
-        "description": "Clubhouse subheading lorem ipsum",
+        "title": null,
+        "description": null,
         "backgroundColor": "#E3C545",
         "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/511f7bac8fcfd823.png",
         "ctaUrl": "https://schedule.sxsw.com/",
         "order": 0,
-        "updatedAt": "2026-11-19T12:27:49.651Z"
+        "updatedAt": "2026-11-19T12:40:57.769Z"
       },
       {
         "id": "clubhouse-two",
-        "title": "Clubhouse Heading Lorem",
-        "description": "Clubhouse subheading lorem ipsum",
+        "title": null,
+        "description": null,
         "backgroundColor": "#B6CC53",
         "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/7cffb65aaca326e3.png",
         "ctaUrl": "https://schedule.sxsw.com/",
         "order": 1,
-        "updatedAt": "2026-11-19T12:27:49.651Z"
+        "updatedAt": "2026-11-19T12:40:57.769Z"
       },
       {
         "id": "clubhouse-three",
-        "title": "Clubhouse Heading Lorem",
-        "description": "Clubhouse subheading lorem ipsum",
+        "title": null,
+        "description": null,
         "backgroundColor": "#32B7BC",
         "imageUrl": "https://raw.githubusercontent.com/sxsw/chronos-content/gh-pages/images/13c5eed65e9d7b9f.png",
         "ctaUrl": "https://schedule.sxsw.com/",
         "order": 2,
-        "updatedAt": "2026-11-19T12:27:49.651Z"
+        "updatedAt": "2026-11-19T12:40:57.769Z"
       }
     ],
     "loggedOut": [
