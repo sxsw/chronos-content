@@ -3,8 +3,8 @@
     "clubhouse": [
       {
         "id": "clubhouse-one",
-        "title": "Clubhouse Heading Lorem",
-        "description": "Clubhouse subheading lorem ipsum",
+        "title": null,
+        "description": null,
         "backgroundColor": "#E3C545",
         "imageUrl": "asset:clubhouse.png",
         "ctaUrl": "https://schedule.sxsw.com/",
@@ -12,8 +12,8 @@
       },
       {
         "id": "clubhouse-two",
-        "title": "Clubhouse Heading Lorem",
-        "description": "Clubhouse subheading lorem ipsum",
+        "title": null,
+        "description": null,
         "backgroundColor": "#B6CC53",
         "imageUrl": "asset:clubhouse-2.png",
         "ctaUrl": "https://schedule.sxsw.com/",
@@ -21,8 +21,8 @@
       },
       {
         "id": "clubhouse-three",
-        "title": "Clubhouse Heading Lorem",
-        "description": "Clubhouse subheading lorem ipsum",
+        "title": null,
+        "description": null,
         "backgroundColor": "#32B7BC",
         "imageUrl": "asset:clubhouse-3.png",
         "ctaUrl": "https://schedule.sxsw.com/",
