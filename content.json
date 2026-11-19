@@ -6,7 +6,7 @@
         "title": "Clubhouse Heading Lorem",
         "description": "Clubhouse subheading lorem ipsum",
         "backgroundColor": "#E3C545",
-        "imageUrl": null,
+        "imageUrl": "asset:clubhouse.png",
         "ctaUrl": "https://schedule.sxsw.com/",
         "order": 0
       },
@@ -15,7 +15,7 @@
         "title": "Clubhouse Heading Lorem",
         "description": "Clubhouse subheading lorem ipsum",
         "backgroundColor": "#B6CC53",
-        "imageUrl": null,
+        "imageUrl": "asset:clubhouse-2.png",
         "ctaUrl": "https://schedule.sxsw.com/",
         "order": 1
       },
@@ -24,7 +24,7 @@
         "title": "Clubhouse Heading Lorem",
         "description": "Clubhouse subheading lorem ipsum",
         "backgroundColor": "#32B7BC",
-        "imageUrl": null,
+        "imageUrl": "asset:clubhouse-3.png",
         "ctaUrl": "https://schedule.sxsw.com/",
         "order": 2
       }
