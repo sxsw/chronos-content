@@ -126,12 +126,17 @@ function validateItem(item, index, kind, fields, assetsDir, seenIds, errors, war
   const isBanner = kind.startsWith('banners')
   const nameField = isBanner ? 'title' : 'name'
   const nameValue = item[nameField]
-  if (typeof nameValue !== 'string' || nameValue.length === 0) {
+  // clubhouse/logged-out cards can be image-only (the title/description slot collapses and the
+  // image expands to fill the space, per spec.md 2026-11-19) — common banners still require a title.
+  const nameRequired = !isBanner || kind === 'banners.common'
+  if (typeof nameValue !== 'string' && !(!nameRequired && nameValue === null)) {
+    errors.push(`${label} (${id ?? '?'}): ${nameField} must be ${nameRequired ? 'a non-empty string' : 'null or a string'}`)
+  } else if (nameRequired && nameValue.length === 0) {
     errors.push(`${label} (${id ?? '?'}): ${nameField} must be a non-empty string`)
   }
 
   if (isBanner) {
-    if (typeof item.description !== 'string') {
+    if (typeof item.description !== 'string' && !(!nameRequired && item.description === null)) {
       errors.push(`${label} (${id ?? '?'}): description must be a string`)
     }
 
@@ -153,6 +158,9 @@ function validateItem(item, index, kind, fields, assetsDir, seenIds, errors, war
 
     if (item.imageUrl === null) {
       warnings.push(`${label} (${id ?? '?'}): imageUrl is null — renders with no image`)
+      if (!nameRequired && !nameValue && !item.description) {
+        warnings.push(`${label} (${id ?? '?'}): no title, description, or image — card renders as just a button`)
+      }
     }
   } else {
     isValidImageRef(item.logoUrl, assetsDir, `${label} (${id ?? '?'})`, errors, 'logoUrl')
